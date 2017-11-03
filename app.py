@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask import render_template
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:root@localhost/schoolschedule'
@@ -19,11 +20,11 @@ class User(db.Model):
 
 @app.route('/')
 def index():
-	return "<h1 style='color: blue'>hello flask</h1>"
+	return render_template('add_user.html')
 	
 @app.route('/post_user', methods = ['POST'])
-def test():
-	return "<h1 style='color: blue'>hello flask</h1>"
+def post_user():
+	return "<h1 style='color: blue'>rawr!</h1>"
 	
 if __name__ == "__main__":
 	app.run()

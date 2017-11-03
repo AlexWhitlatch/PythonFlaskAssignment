@@ -1,0 +1,5 @@
+Learn how to implement ORM - preferred within flask uses SQL-Alchemy - install postgres (uses port 5432 password set is "root")
+Install FlaskSQLAlchemy - Broke initially - Found out I had to be in the (env) mode to install things!
+
+Get DB to app in python console - 'from app import db'
+then 'db.create_all()'
