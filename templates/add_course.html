@@ -16,9 +16,11 @@
 		<input type="submit" />
 	</form>
 	
+	All Courses Created:
 	{% for course in course %}
-		<li>{{course.courseName}} - {{course.department}} - {{course.creditHours}}</li>
+		<li>Course ID: {{course.id}}</br> Course Name: {{course.courseName}} </br>Course Department: {{course.department}}</br> Number of Credits: {{course.creditHours}}</li></br>
 	{% endfor %}
+	</br>
 		
 
 </body>

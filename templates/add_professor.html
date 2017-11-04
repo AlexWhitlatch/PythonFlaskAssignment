@@ -14,8 +14,9 @@
 		<input type="submit" />
 	</form>
 		
+	All Professors Created:
 	{% for professor in professor %}
-		<li>{{professor.username}} - {{professor.email}}</li>
+		<li>Professor ID: {{professor.id}}</br> Professor Name: {{professor.username}}</br> Professor E-mail: {{professor.email}}</br></li></br>
 	{% endfor %}
 		
 </body>

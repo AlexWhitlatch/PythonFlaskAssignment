@@ -12,7 +12,7 @@ db = SQLAlchemy(app)
 
 class Professor(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
-	username = db.Column(db.String(80), unique=True)
+	name = db.Column(db.String(80), unique=True)
 	email = db.Column(db.String(120), unique=True)
 	sections = db.relationship('Section', backref = 'professor', lazy = 'dynamic')
 	
@@ -26,8 +26,8 @@ class Professor(db.Model):
 class Course(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	courseName = db.Column(db.String(80), unique=True)
-	department = db.Column(db.String(80), unique=True)
-	creditHours = db.Column(db.Integer, unique=True)
+	department = db.Column(db.String(80), unique=false)
+	creditHours = db.Column(db.Integer, unique=false)
 	sections = db.relationship('Section', backref = 'course', lazy = 'dynamic')
 	
 	def __init__(self, courseName, department, creditHours):
