@@ -38,16 +38,17 @@ class Section(db.Model):
 	
 	
 	
-@app.route('/')
-def index():
-	return render_template('add_user.html')
+@app.route('/professors')
+def professors():
+	professor = Professor.query.all()
+	return render_template('add_professor.html', professor = professor)
 	
-@app.route('/post_user', methods = ['POST'])
+@app.route('/post_professor', methods = ['POST'])
 def post_user():
-	user = User(request.form['username'], request.form['email'])
-	db.session.add(user)
+	professor = Professor(request.form['username'], request.form['email'])
+	db.session.add(professor)
 	db.session.commit()
-	return redirect(url_for('index'))
+	return redirect(url_for('professors'))
 	
 if __name__ == "__main__":
 	app.run()
