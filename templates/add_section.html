@@ -15,9 +15,24 @@
 		<input id="course_id" name = "course_id" type="integer" />
 		<input type="submit" />
 	</form>
+	</br></br>
 	
+	
+	Created Sections:
 	{% for section in section %}
-		<li>{{section.sectionNumber}} - {{section.professor_id}} - {{section.course_id}}</li>
+		<li>Section Number: {{section.sectionNumber}}</br> Associated Professor ID: {{section.professor_id}} </br> Associated Course ID {{section.course_id}}</br></li></br>
+	{% endfor %}
+	</br>
+	
+	Current Courses Available:
+	{% for course in course %}
+		<li>Course ID: {{course.id}}</br> Course Name: {{course.courseName}} </br>Course Department: {{course.department}}</br> Number of Credits: {{course.creditHours}}</li></br>
+	{% endfor %}
+	</br>
+	
+	Current Professors Available:
+	{% for professor in professor %}
+		<li>Professor ID: {{professor.id}}</br> Professor Name: {{professor.username}}</br> Professor E-mail: {{professor.email}}</br></li></br>
 	{% endfor %}
 		
 

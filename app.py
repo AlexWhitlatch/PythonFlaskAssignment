@@ -78,7 +78,9 @@ def post_course():
 @app.route('/sections')
 def sections():
 	section = Section.query.all()
-	return render_template('add_section.html', section = section)
+	course = Course.query.all()
+	professor = Professor.query.all()
+	return render_template('add_section.html', section = section, course = course, professor = professor)
 	
 @app.route('/post_section', methods = ['POST'])
 def post_section():
