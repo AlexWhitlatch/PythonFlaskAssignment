@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+
+	<form method="post" action="/post_course">
+		<label>Course Name:</label>
+		<input id="courseName" name="courseName" type="text" />
+		<label>Department:</label>
+		<input id="department" name = "department" type="text" />
+		<label>Number of Credits:</label>
+		<input id="creditHours" name = "creditHours" type="text" />
+		<input type="submit" />
+	</form>
+	
+	{% for course in course %}
+		<li>{{course.courseName}} - {{course.department}} - {{course.creditHours}}</li>
+	{% endfor %}
+		
+
+</body>
+</html>
+	

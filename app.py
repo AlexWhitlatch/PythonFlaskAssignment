@@ -29,12 +29,23 @@ class Course(db.Model):
 	department = db.Column(db.String(80), unique=True)
 	creditHours = db.Column(db.Integer, unique=True)
 	sections = db.relationship('Section', backref = 'course', lazy = 'dynamic')
+	
+	def __init__(self, courseName, department, creditHours):
+		self.courseName = courseName
+		self.department = department
+		self.creditHours = creditHours
+
 
 class Section(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	sectionNumber = db.Column(db.Integer, unique=True)
-	professer_id = db.Column(db.Integer, db.ForeignKey('professor.id'))
+	professor_id = db.Column(db.Integer, db.ForeignKey('professor.id'))
 	course_id = db.Column(db.Integer, db.ForeignKey('course.id'))
+
+	def __init__(self, sectionNumber, professor_id, course_id):
+		self.sectionNumber = sectionNumber
+		self.professor_id = professor_id
+		self.course_id = course_id
 	
 	
 	
@@ -44,11 +55,37 @@ def professors():
 	return render_template('add_professor.html', professor = professor)
 	
 @app.route('/post_professor', methods = ['POST'])
-def post_user():
+def post_professor():
 	professor = Professor(request.form['username'], request.form['email'])
 	db.session.add(professor)
 	db.session.commit()
 	return redirect(url_for('professors'))
+	
+
+@app.route('/courses')
+def courses():
+	course = Course.query.all()
+	return render_template('add_course.html', course = course)
+	
+@app.route('/post_course', methods = ['POST'])
+def post_course():
+	course = Course(request.form['courseName'], request.form['department'],request.form['creditHours'])
+	db.session.add(course)
+	db.session.commit()
+	return redirect(url_for('courses'))
+	
+	
+@app.route('/sections')
+def sections():
+	section = Section.query.all()
+	return render_template('add_section.html', section = section)
+	
+@app.route('/post_section', methods = ['POST'])
+def post_section():
+	section = Section(request.form['sectionNumber'], request.form['professor_id'], request.form['course_id'])
+	db.session.add(section)
+	db.session.commit()
+	return redirect(url_for('sections'))	
 	
 if __name__ == "__main__":
 	app.run()

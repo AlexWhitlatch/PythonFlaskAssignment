@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+
+	<form method="post" action="/post_section">
+		<label>Section Number:</label>
+		<input id="sectionNumber" name="sectionNumber" type="integer" />
+		<label>Associated Professor ID:</label>
+		<input id="professor_id" name = "professor_id" type="integer" />
+		<label>Associated Course ID:</label>
+		<input id="course_id" name = "course_id" type="integer" />
+		<input type="submit" />
+	</form>
+	
+	{% for section in section %}
+		<li>{{section.sectionNumber}} - {{section.professor_id}} - {{section.course_id}}</li>
+	{% endfor %}
+		
+
+</body>
+</html>
+	
