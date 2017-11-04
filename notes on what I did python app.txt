@@ -3,3 +3,5 @@ Install FlaskSQLAlchemy - Broke initially - Found out I had to be in the (env) m
 
 Get DB to app in python console - 'from app import db'
 then 'db.create_all()'
+
+Created Professor, Sections, Courses (with PK and FK)

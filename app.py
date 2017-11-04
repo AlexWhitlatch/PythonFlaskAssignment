@@ -22,19 +22,19 @@ class Professor(db.Model):
 		
 	def __repr__(self):
 		return '<Professor %r>' % self.username
-
-class Section(db.Model):
-	id = db.Column(db.Integer, primary_key=True)
-	sectionNumber = db.Column(db.Integer, unique=True)
-	professer_id = db.Column(db.Integer, db.ForeignKey('professor.id'))
-	course_id = db.Column(db.Integer, db.ForeignKey('course.id'))
-	
+		
 class Course(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	courseName = db.Column(db.String(80), unique=True)
 	department = db.Column(db.String(80), unique=True)
 	creditHours = db.Column(db.Integer, unique=True)
 	sections = db.relationship('Section', backref = 'course', lazy = 'dynamic')
+
+class Section(db.Model):
+	id = db.Column(db.Integer, primary_key=True)
+	sectionNumber = db.Column(db.Integer, unique=True)
+	professer_id = db.Column(db.Integer, db.ForeignKey('professor.id'))
+	course_id = db.Column(db.Integer, db.ForeignKey('course.id'))
 	
 	
 	
