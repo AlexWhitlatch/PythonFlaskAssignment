@@ -10,18 +10,34 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:root@localhost/sc
 app.debug = True
 db = SQLAlchemy(app)
 
-class User(db.Model):
+class Professor(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	username = db.Column(db.String(80), unique=True)
 	email = db.Column(db.String(120), unique=True)
+	sections = db.relationship('Section', backref = 'professor', lazy = 'dynamic')
 	
 	def __init__(self, username, email):
 		self.username = username
 		self.email = email
 		
 	def __repr__(self):
-		return '<User %r>' % self.username
+		return '<Professor %r>' % self.username
 
+class Section(db.Model):
+	id = db.Column(db.Integer, primary_key=True)
+	sectionNumber = db.Column(db.Integer, unique=True)
+	professer_id = db.Column(db.Integer, db.ForeignKey('professor.id'))
+	course_id = db.Column(db.Integer, db.ForeignKey('course.id'))
+	
+class Course(db.Model):
+	id = db.Column(db.Integer, primary_key=True)
+	courseName = db.Column(db.String(80), unique=True)
+	department = db.Column(db.String(80), unique=True)
+	creditHours = db.Column(db.Integer, unique=True)
+	sections = db.relationship('Section', backref = 'course', lazy = 'dynamic')
+	
+	
+	
 @app.route('/')
 def index():
 	return render_template('add_user.html')
