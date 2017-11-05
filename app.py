@@ -26,8 +26,8 @@ class Professor(db.Model):
 class Course(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	courseName = db.Column(db.String(80), unique=True)
-	department = db.Column(db.String(80), unique=false)
-	creditHours = db.Column(db.Integer, unique=false)
+	department = db.Column(db.String(80), unique=False)
+	creditHours = db.Column(db.Integer, unique=False)
 	sections = db.relationship('Section', backref = 'course', lazy = 'dynamic')
 	
 	def __init__(self, courseName, department, creditHours):
