@@ -16,12 +16,12 @@ class Professor(db.Model):
 	email = db.Column(db.String(120), unique=True)
 	sections = db.relationship('Section', backref = 'professor', lazy = 'dynamic')
 	
-	def __init__(self, username, email):
-		self.username = username
+	def __init__(self, name, email):
+		self.name = name
 		self.email = email
 		
 	def __repr__(self):
-		return '<Professor %r>' % self.username
+		return '<Professor %r>' % self.name
 		
 class Course(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
@@ -56,7 +56,7 @@ def professors():
 	
 @app.route('/post_professor', methods = ['POST'])
 def post_professor():
-	professor = Professor(request.form['username'], request.form['email'])
+	professor = Professor(request.form['name'], request.form['email'])
 	db.session.add(professor)
 	db.session.commit()
 	return redirect(url_for('professors'))
