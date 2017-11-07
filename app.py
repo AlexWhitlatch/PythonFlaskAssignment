@@ -48,6 +48,10 @@ class Section(db.Model):
 		self.course_id = course_id
 	
 	
+
+@app.route('/')
+def index():
+	return render_template('layout.html')
 	
 @app.route('/professors')
 def professors():
