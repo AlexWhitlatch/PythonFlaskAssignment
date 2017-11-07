@@ -1,7 +1,24 @@
-Learn how to implement ORM - preferred within flask uses SQL-Alchemy - install postgres (uses port 5432 password set is "root")
-Install FlaskSQLAlchemy - Broke initially - Found out I had to be in the (env) mode to install things!
+Notes for doing Web App assignment
 
-Get DB to app in python console - 'from app import db'
-then 'db.create_all()'
-
-Created Professor, Sections, Courses (with PK and FK)
+1. installed Python
+2. Installed virtual env
+3. Used Virtual Studio for Python coding
+4. Created virtualenv within app
+5. C:\Users\alexw\Desktop\myPythonApp\env\Scripts>activate (Starts env mode) Any python library needed to be used is put inside of this project/virtual environment
+6. pip install flask  <== pulls correct version of flask for Python version
+7. Create project folders needed - Static, Templates
+8. Static - create css, images, and js folder
+9. Learn how to implement ORM - preferred within flask uses SQL-Alchemy - install postgres (uses port 5432 password set is "root")
+10. Install FlaskSQLAlchemy - Broke initially - Found out I had to be in the (env) mode to install things!
+11. Get DB to app in python console - 'from app import db' then 'db.create_all()' - missing psycopg2 - had to 'pip install psycopg2' to fix issue
+12. to create tables, db.create_all() creates the tables needed to function
+13. Created new routes (ie: post_user)
+14. Use Jinja - must do 'from flask import render_template' so instead of 'return "<h1 style='color: blue'>hello flask</h1>"'
+	can use 'return render_template('add_user.html', name=name)' - will look for page in 'templates'
+	folder in root directory
+15. enable debug mode - makes troubleshooting much easier
+16. Need to import 'request' - from flask import request' redirect, url_for
+17. setup saving values and added to DB.
+18. Get DB to app in python console - 'from app import db' then 'db.create_all()'
+19. Created Professor, Sections, Courses (with PK and FK)
+20. Created associated HTML pages, used Jinja to send data to pages and manipulate as needed

@@ -5,6 +5,9 @@
       color: #444;
 	  background-color: green
     }
+	form{
+	  color: yellow
+	}
 	head{
       margin: 0;
       font-size: 1.7em;

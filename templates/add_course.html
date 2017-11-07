@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 <head>
 	<title></title>
 	<meta charset="utf-8" />
 </head>
 <body>
+<h1> COURSES!!!!!!! </h1>
+
 
 	<form method="post" action="/post_course">
 		<label>Course Name:</label>
@@ -15,6 +18,7 @@
 		<input id="creditHours" name = "creditHours" type="text" />
 		<input type="submit" />
 	</form>
+	</br>
 	
 	All Courses Created:
 	{% for course in course %}
