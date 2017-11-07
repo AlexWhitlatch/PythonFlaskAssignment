@@ -6,7 +6,7 @@
 	<meta charset="utf-8" />
 </head>
 <body>
-<h1> LET'S CREATE SOME PROFESSORS!!!!!!! </h1>
+<h1> THIS IS PROFESSORS!!!!!!! </h1>
 </br>
 
 	<form method="post" action="/post_professor">
@@ -20,7 +20,12 @@
 		
 	All Professors Created:
 	{% for professor in professor %}
-		<li>Professor ID: {{professor.id}}</br> Professor Name: {{professor.name}}</br> Professor E-mail: {{professor.email}}</br></li></br>
+		<li>Professor ID: {{professor.id}}</br> Professor Name: {{professor.name}}</br> Professor E-mail: {{professor.email}}</br>
+		<form method="post" action="/delete_professor">
+		<input id="id" name = "id" type="integer" />
+		<input type="submit" value="Delete Professor"/>
+		</form>
+		</li></br>
 	{% endfor %}
 		
 </body>

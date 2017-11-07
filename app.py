@@ -65,6 +65,13 @@ def post_professor():
 	db.session.commit()
 	return redirect(url_for('professors'))
 	
+@app.route('/delete_professor', methods = ['GET', 'POST'])
+def delete_professor():
+	professor = Professor.query.get(request.form['id'])
+	db.session.delete(professor)
+	db.session.commit()
+	return redirect(url_for('professors'))
+	
 
 @app.route('/courses')
 def courses():
@@ -75,6 +82,13 @@ def courses():
 def post_course():
 	course = Course(request.form['courseName'], request.form['department'],request.form['creditHours'])
 	db.session.add(course)
+	db.session.commit()
+	return redirect(url_for('courses'))
+	
+@app.route('/delete_course', methods = ['GET', 'POST'])
+def delete_course():
+	course = Course.query.get(request.form['id'])
+	db.session.delete(course)
 	db.session.commit()
 	return redirect(url_for('courses'))
 	
@@ -92,6 +106,12 @@ def post_section():
 	db.session.add(section)
 	db.session.commit()
 	return redirect(url_for('sections'))	
-	
+
+@app.route('/delete_section', methods = ['GET', 'POST'])
+def delete_section():
+	section = Section.query.get(request.form['id'])
+	db.session.delete(section)
+	db.session.commit()
+	return redirect(url_for('sections'))
 if __name__ == "__main__":
 	app.run()

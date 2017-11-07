@@ -6,7 +6,7 @@
 	<meta charset="utf-8" />
 </head>
 <body>
-<h1> LET'S CREATE SOME COURSES!!!!!!! </h1>
+<h1>THIS IS COURSES!!!!!!! </h1>
 
 
 	<form method="post" action="/post_course">
@@ -22,7 +22,12 @@
 	
 	All Courses Created:
 	{% for course in course %}
-		<li>Course ID: {{course.id}}</br> Course Name: {{course.courseName}} </br>Course Department: {{course.department}}</br> Number of Credits: {{course.creditHours}}</li></br>
+		<li>Course ID: {{course.id}}</br> Course Name: {{course.courseName}} </br>Course Department: {{course.department}}</br> Number of Credits: {{course.creditHours}}</li>
+		<form method="post" action="/delete_course">
+		<input id="id" name = "id" type="integer" />
+		<input type="submit" value="Delete Course"/>
+		</form>
+		</br>
 	{% endfor %}
 	</br>
 		

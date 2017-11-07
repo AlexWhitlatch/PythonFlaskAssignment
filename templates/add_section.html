@@ -6,7 +6,7 @@
 	<meta charset="utf-8" />
 </head>
 <body>
-<h1> LETS CREATE SOME SECTIONS!!!!!!! </h1>
+<h1>THIS IS SECTIONS!!!!!!! </h1>
 
 	<form method="post" action="/post_section">
 		<label>Section Number:</label>
@@ -22,7 +22,13 @@
 	
 	Created Sections:
 	{% for section in section %}
-		<li>Section Number: {{section.sectionNumber}}</br> Associated Professor ID: {{section.professor_id}} </br> Associated Course ID {{section.course_id}}</br></li></br>
+		<li>Section ID: {{section.id}} </br> Section Number: {{section.sectionNumber}}</br> Associated Professor ID: {{section.professor_id}} </br> Associated Course ID {{section.course_id}}</br>
+		<form method="post" action="/delete_section">
+		<input id="id" name = "id" type="integer" />
+		<input type="submit" value="Delete Section"/>
+		</form>
+		</br>
+		</li></br>
 	{% endfor %}
 	</br>
 	
