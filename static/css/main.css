@@ -36,11 +36,9 @@
       margin-bottom: 10px;
     }
     header h1.logo {
-      margin: 0;
-      font-size: 1.7em;
+      font-size: 2000;
       color: #f10;
       text-transform: uppercase;
-      float: left;
     }
     header h1.logo:hover {
       color: #fff;
@@ -68,7 +66,7 @@
               border-radius: 6px;
     }
     h2 {
-      font-size: 3em;
+      font-size: 40;
       margin-top: 40px;
       text-align: center;
       letter-spacing: -2px;

@@ -2,7 +2,7 @@ Notes for doing Web App assignment
 
 1. installed Python
 2. Installed virtual env
-3. Used Virtual Studio for Python coding
+3. Used Virtual Studio for Python coding -jk NOTEPAD ++
 4. Created virtualenv within app
 5. C:\Users\alexw\Desktop\myPythonApp\env\Scripts>activate (Starts env mode) Any python library needed to be used is put inside of this project/virtual environment
 6. pip install flask  <== pulls correct version of flask for Python version
